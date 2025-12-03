@@ -1,0 +1,417 @@
+/* Typing Test Page Specific Styles */
+
+.page-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 3rem 2rem;
+    text-align: center;
+    color: var(--white);
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+.typing-section {
+    padding: 3rem 0;
+}
+
+/* Submit Score Card */
+.submit-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.submit-card h2 {
+    color: var(--dark-accent);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.form-instructions {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Quicksand', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+#scoreForm button[type="submit"] {
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.submit-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    display: none;
+}
+
+.submit-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 2px solid #c3e6cb;
+    display: block;
+}
+
+.submit-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 2px solid #f5c6cb;
+    display: block;
+}
+
+/* Scoreboard Card */
+.scoreboard-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.scoreboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.scoreboard-header h2 {
+    color: var(--dark-accent);
+    font-size: 2rem;
+    margin: 0;
+    text-align: left;
+}
+
+.current-date {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.scoreboard-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-refresh,
+.btn-clear {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.btn-refresh {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-refresh:hover {
+    background-color: var(--dark-accent);
+    transform: translateY(-2px);
+}
+
+.btn-clear {
+    background-color: #e53e3e;
+    color: var(--white);
+}
+
+.btn-clear:hover {
+    background-color: #c53030;
+    transform: translateY(-2px);
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+}
+
+.empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    font-size: 1.2rem;
+}
+
+/* Scoreboard Table */
+.scoreboard-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.scoreboard-table thead {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+}
+
+.scoreboard-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.scoreboard-table tbody tr {
+    background: var(--background);
+    transition: all 0.3s ease;
+}
+
+.scoreboard-table tbody tr:nth-child(even) {
+    background: var(--white);
+}
+
+.scoreboard-table tbody tr:hover {
+    background: #fff7ed;
+    transform: scale(1.01);
+}
+
+.scoreboard-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.rank-cell {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--dark-accent);
+    width: 80px;
+}
+
+.rank-medal {
+    font-size: 1.5rem;
+}
+
+.name-cell {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.wpm-cell {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.accuracy-cell {
+    font-weight: 600;
+    color: var(--earth-tone);
+}
+
+.time-cell {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.delete-cell {
+    text-align: center;
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    color: #e53e3e;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+    background-color: #fee;
+    transform: scale(1.2);
+}
+
+/* MonkeyType Card */
+.monkeytype-card {
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    color: var(--white);
+    box-shadow: 0 4px 20px var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.monkeytype-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.monkeytype-card p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+}
+
+/* Statistics Section */
+.stats-section {
+    margin-top: 3rem;
+}
+
+.stats-section h2 {
+    color: var(--dark-accent);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--shadow);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px var(--shadow-hover);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .scoreboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .scoreboard-table {
+        font-size: 0.9rem;
+    }
+
+    .scoreboard-table th,
+    .scoreboard-table td {
+        padding: 0.7rem 0.5rem;
+    }
+
+    .rank-cell {
+        width: 60px;
+    }
+
+    .time-cell {
+        display: none;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .submit-card,
+    .scoreboard-card,
+    .monkeytype-card {
+        padding: 1.5rem;
+    }
+
+    .scoreboard-controls {
+        flex-direction: column;
+    }
+
+    .btn-refresh,
+    .btn-clear {
+        width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

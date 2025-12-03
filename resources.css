@@ -1,0 +1,199 @@
+/* Resources Page Specific Styles */
+
+.page-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 3rem 2rem;
+    text-align: center;
+    color: var(--white);
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+.resources-section {
+    padding: 3rem 0;
+}
+
+.resource-category-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px var(--shadow);
+    margin-bottom: 2.5rem;
+}
+
+.category-header {
+    margin-bottom: 2rem;
+}
+
+.category-header h2 {
+    color: var(--dark-accent);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.category-header p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* Resource Links Grid */
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.resource-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--background);
+    border-radius: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.resource-link:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px var(--shadow);
+    background: var(--white);
+}
+
+.link-icon {
+    font-size: 2.5rem;
+    min-width: 3rem;
+    text-align: center;
+}
+
+.link-content {
+    flex: 1;
+}
+
+.link-content h3 {
+    font-size: 1.2rem;
+    color: var(--dark-accent);
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+}
+
+.link-content p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.link-arrow {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.resource-link:hover .link-arrow {
+    transform: translateX(5px);
+}
+
+/* VS Code Extensions List */
+.extensions-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.extension-card {
+    background: var(--background);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border-left: 5px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.extension-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px var(--shadow);
+    border-left-color: var(--secondary-color);
+}
+
+.extension-card h3 {
+    font-size: 1.2rem;
+    color: var(--dark-accent);
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.extension-card p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.btn-install {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-install:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .links-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .extensions-list {
+        grid-template-columns: 1fr;
+    }
+
+    .resource-category-card {
+        padding: 1.5rem;
+    }
+
+    .resource-link {
+        padding: 1rem;
+    }
+
+    .link-icon {
+        font-size: 2rem;
+        min-width: 2.5rem;
+    }
+
+    .link-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .link-content p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .category-header h2 {
+        font-size: 1.6rem;
+    }
+}

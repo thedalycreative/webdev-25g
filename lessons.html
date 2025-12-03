@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Notes | Quokka Squad 25g</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="lessons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="quokka-emoji">🦘</span>
+                <span class="brand-text">Quokka Squad 25g</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="lessons.html" class="active">Lessons</a></li>
+                <li><a href="typing-test.html">Typing Test</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>📖 Lesson Notes</h1>
+            <p>Updated regularly with notes, resources, and key takeaways</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="lessons-section">
+            <div class="container">
+                
+                <div class="update-notice">
+                    <p>🔄 <strong>Updated weekly</strong> • Last updated: <span id="lastUpdated">3 December 2025</span></p>
+                </div>
+
+                <!-- Lesson Cards -->
+                <div class="lessons-container">
+
+                    <!-- Lesson 1 -->
+                    <div class="lesson-card">
+                        <div class="lesson-header" onclick="toggleLesson('lesson1')">
+                            <div class="lesson-title">
+                                <span class="lesson-number">Lesson 1</span>
+                                <h2>Foundations</h2>
+                            </div>
+                            <div class="lesson-meta">
+                                <span class="lesson-date">October 2025</span>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                        </div>
+                        <div class="lesson-content" id="lesson1">
+                            <div class="content-section">
+                                <h3>📚 Topics Covered</h3>
+                                <ul>
+                                    <li>VS Code installation and setup</li>
+                                    <li>File and folder structure best practices</li>
+                                    <li>Live Server extension and "Go Live" feature</li>
+                                    <li>HTML boilerplate anatomy (doctype, head, body)</li>
+                                    <li>Core HTML tags: headings, paragraphs, lists, images</li>
+                                    <li>Text formatting tags (bold, italic, emphasis)</li>
+                                    <li>Importance of clean indentation and code readability</li>
+                                    <li>Introduction to Prettier code formatter</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="content-section">
+                                <h3>🔑 Key Concepts</h3>
+                                <ul>
+                                    <li>Why clean indentation keeps GitHub diffs readable</li>
+                                    <li>HTML semantic structure for accessibility</li>
+                                    <li>Local development with Live Server</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section">
+                                <h3>📝 Practice Activities</h3>
+                                <p>Create your first HTML page with proper structure and basic tags</p>
+                            </div>
+
+                            <div class="content-section resources">
+                                <h3>🔗 Resources</h3>
+                                <a href="https://www.w3schools.com/html/html_intro.asp" target="_blank">W3Schools HTML Tutorial</a>
+                                <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML" target="_blank">MDN HTML Introduction</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 2 -->
+                    <div class="lesson-card">
+                        <div class="lesson-header" onclick="toggleLesson('lesson2')">
+                            <div class="lesson-title">
+                                <span class="lesson-number">Lesson 2</span>
+                                <h2>Semantic Layout & Structure</h2>
+                            </div>
+                            <div class="lesson-meta">
+                                <span class="lesson-date">October 2025</span>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                        </div>
+                        <div class="lesson-content" id="lesson2">
+                            <div class="content-section">
+                                <h3>📚 Topics Covered</h3>
+                                <ul>
+                                    <li>Built full page structure with header, main, footer, sections</li>
+                                    <li>Semantic HTML5 elements (nav, article, aside)</li>
+                                    <li>Accessible navigation best practices</li>
+                                    <li>Alt text importance for images</li>
+                                    <li>Creating meaningful page layouts</li>
+                                    <li>HTML comments for code documentation</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section">
+                                <h3>🎯 Learning Outcomes</h3>
+                                <ul>
+                                    <li>Understand why semantic HTML matters for SEO and accessibility</li>
+                                    <li>Structure pages using appropriate HTML5 elements</li>
+                                    <li>Write descriptive alt text for screen readers</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section">
+                                <h3>📝 Practice Challenge</h3>
+                                <p>Recreate a demo layout with proper semantic structure and add inline comments explaining your code choices</p>
+                                <a href="https://www.w3schools.com/html/html_exercises.asp" target="_blank" class="practice-link">W3Schools HTML Exercises →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 3 -->
+                    <div class="lesson-card">
+                        <div class="lesson-header" onclick="toggleLesson('lesson3')">
+                            <div class="lesson-title">
+                                <span class="lesson-number">Lesson 3</span>
+                                <h2>Introduction to CSS</h2>
+                            </div>
+                            <div class="lesson-meta">
+                                <span class="lesson-date">October 2025</span>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                        </div>
+                        <div class="lesson-content" id="lesson3">
+                            <div class="content-section">
+                                <h3>📚 Topics Covered</h3>
+                                <ul>
+                                    <li>Created HTML styles with basic custom CSS</li>
+                                    <li>Introduction to browser DevTools for inspecting websites</li>
+                                    <li>Building and refining navbar components</li>
+                                    <li>Creating footer sections</li>
+                                    <li>CSS syntax and basic selectors</li>
+                                    <li>Linking external CSS files</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section">
+                                <h3>🛠️ Tools Introduced</h3>
+                                <ul>
+                                    <li>Browser Developer Tools (Inspect Element)</li>
+                                    <li>CSS file linking with &lt;link&gt; tag</li>
+                                    <li>Live preview with browser refresh</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section resources">
+                                <h3>🔗 Resources</h3>
+                                <a href="https://www.w3schools.com/css/" target="_blank">W3Schools CSS Tutorial</a>
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN CSS Documentation</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 4 -->
+                    <div class="lesson-card">
+                        <div class="lesson-header" onclick="toggleLesson('lesson4')">
+                            <div class="lesson-title">
+                                <span class="lesson-number">Lesson 4</span>
+                                <h2>CSS & HTML Deep Dive</h2>
+                            </div>
+                            <div class="lesson-meta">
+                                <span class="lesson-date">October/November 2025</span>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                        </div>
+                        <div class="lesson-content" id="lesson4">
+                            <div class="content-section">
+                                <h3>📚 Topics Covered</h3>
+                                <ul>
+                                    <li>CSS Fundamentals: Three types (inline, internal, external)</li>
+                                    <li>CSS Selectors: Element, class, ID selectors</li>
+                                    <li>Styling properties: colors, fonts, backgrounds</li>
+                                    <li>The CSS Box Model: Content, padding, border, margin</li>
+                                    <li>HTML Tables: structure, styling, and accessibility</li>
+                                    <li>Navigation elements and semantic HTML</li>
+                                    <li>Advanced CSS: Hover effects and button styling</li>
+                                    <li>Color systems: hex, RGB, color names</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section">
+                                <h3>🎨 Key Concepts</h3>
+                                <ul>
+                                    <li>Understanding the Box Model for layout control</li>
+                                    <li>Class selectors (.navbar) vs element selectors</li>
+                                    <li>Creating interactive hover states</li>
+                                    <li>Organizing CSS for maintainability</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section resources">
+                                <h3>🔗 Resources</h3>
+                                <a href="https://www.w3schools.com/tags/default.asp" target="_blank">HTML Tags Reference</a>
+                                <a href="https://www.w3schools.com/css/default.asp" target="_blank">CSS Documentation</a>
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model" target="_blank">CSS Box Model Guide</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 5 -->
+                    <div class="lesson-card">
+                        <div class="lesson-header" onclick="toggleLesson('lesson5')">
+                            <div class="lesson-title">
+                                <span class="lesson-number">Lesson 5</span>
+                                <h2>Client Relations & Web Performance</h2>
+                            </div>
+                            <div class="lesson-meta">
+                                <span class="lesson-date">November 2025</span>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                        </div>
+                        <div class="lesson-content" id="lesson5">
+                            <div class="content-section">
+                                <h3>📚 Topics Covered</h3>
+                                <ul>
+                                    <li>Real-world client assessment and relationship management</li>
+                                    <li>Case Study: Swan Valley Cellars e-commerce optimization</li>
+                                    <li>Understanding website performance issues</li>
+                                    <li>Core Web Vitals: LCP, FID, CLS</li>
+                                    <li>Mobile abandonment and conversion rates</li>
+                                    <li>Performance solutions: caching, image compression</li>
+                                    <li>Hosting migration considerations</li>
+                                    <li>Platform comparison: Wix, Shopify, Kinsta, WP Engine</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section">
+                                <h3>💡 Key Takeaway</h3>
+                                <p><strong>Website performance directly impacts revenue & SEO rankings</strong></p>
+                                <p>Slow loading times = lost customers and lower search rankings</p>
+                            </div>
+
+                            <div class="content-section">
+                                <h3>🔧 Performance Tools</h3>
+                                <ul>
+                                    <li>Google PageSpeed Insights</li>
+                                    <li>GTmetrix</li>
+                                    <li>Chrome DevTools Lighthouse</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 6 -->
+                    <div class="lesson-card">
+                        <div class="lesson-header" onclick="toggleLesson('lesson6')">
+                            <div class="lesson-title">
+                                <span class="lesson-number">Lesson 6</span>
+                                <h2>QA & Accessibility Testing</h2>
+                            </div>
+                            <div class="lesson-meta">
+                                <span class="lesson-date">November 2025</span>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                        </div>
+                        <div class="lesson-content" id="lesson6">
+                            <div class="content-section">
+                                <h3>📚 Topics Covered</h3>
+                                <ul>
+                                    <li>CSS Exercise: Text decorations and styling properties</li>
+                                    <li>QA Best Practices: Checklists and risk assessments</li>
+                                    <li>Functional testing methodologies</li>
+                                    <li>WCAG Compliance: Standards for web accessibility</li>
+                                    <li>Keyboard navigation testing</li>
+                                    <li>Alt text and screen reader compatibility</li>
+                                    <li>Color contrast ratios (WCAG AA/AAA)</li>
+                                    <li>Accessibility testing tools and browser extensions</li>
+                                    <li>Using AI tools (ChatGPT/Gemini) for QA testing</li>
+                                    <li>Client communication: Simplifying technical issues</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section">
+                                <h3>🛠️ Hands-on Practice</h3>
+                                <p>Used accessibility checkers and found 53% compliance on a test site</p>
+                                <p>Created and implemented QA checklists for systematic testing</p>
+                            </div>
+
+                            <div class="content-section resources">
+                                <h3>🔗 Resources</h3>
+                                <a href="https://www.w3.org/WAI/standards-guidelines/" target="_blank">WCAG Guidelines</a>
+                                <a href="https://wave.webaim.org/" target="_blank">WAVE Accessibility Tool</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 7 -->
+                    <div class="lesson-card">
+                        <div class="lesson-header" onclick="toggleLesson('lesson7')">
+                            <div class="lesson-title">
+                                <span class="lesson-number">Lesson 7</span>
+                                <h2>Tech Support & SEO Optimization</h2>
+                            </div>
+                            <div class="lesson-meta">
+                                <span class="lesson-date">November 2025</span>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                        </div>
+                        <div class="lesson-content" id="lesson7">
+                            <div class="content-section">
+                                <h3>📚 Topics Covered</h3>
+                                <ul>
+                                    <li>CSS Practice: Table styling, borders, padding/margin</li>
+                                    <li>Tech support role-play: Client communication skills</li>
+                                    <li>Troubleshooting common website issues</li>
+                                    <li>SEO Optimization fundamentals</li>
+                                    <li>Metadata and meta tags</li>
+                                    <li>Keywords research and implementation</li>
+                                    <li>Page titles and descriptions for search visibility</li>
+                                    <li>Navigation fixes: HTML href attributes</li>
+                                    <li>Handling broken links and 404 pages</li>
+                                    <li>Service Management: SLA timelines and NPS feedback</li>
+                                    <li>Technical documentation best practices</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section">
+                                <h3>🎭 Case Studies</h3>
+                                <ul>
+                                    <li><strong>Katie:</strong> Resolving SEO visibility issues</li>
+                                    <li><strong>Marvin:</strong> Fixing broken navigation links</li>
+                                    <li>Implementing comprehensive QA checklists</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section">
+                                <h3>💼 Professional Skills</h3>
+                                <ul>
+                                    <li>Effective client communication</li>
+                                    <li>Problem-solving methodology</li>
+                                    <li>Documentation and reporting</li>
+                                    <li>Meeting service level agreements (SLAs)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder for future lessons -->
+                    <div class="lesson-card upcoming">
+                        <div class="lesson-header">
+                            <div class="lesson-title">
+                                <span class="lesson-number">Upcoming</span>
+                                <h2>More Lessons Coming Soon!</h2>
+                            </div>
+                        </div>
+                        <div class="lesson-content-static">
+                            <p>📝 This page is updated regularly as we progress through the course.</p>
+                            <p>🚀 Check back often for new lesson notes, resources, and practice exercises!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+        </div>
+        <div class="footer-content">
+            <p>© 2025 Quokka Squad 25g • Diploma of IT Back End Web Development</p>
+            <p>Equinim College • Intake 25g</p>
+        </div>
+    </footer>
+
+    <script src="lessons.js"></script>
+</body>
+</html>

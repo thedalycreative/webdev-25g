@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test Scoreboard | Quokka Squad 25g</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="typing-test.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="quokka-emoji">🦘</span>
+                <span class="brand-text">Quokka Squad 25g</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="typing-test.html" class="active">Typing Test</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>⌨️ Daily Typing Challenge</h1>
+            <p>Track your MonkeyType progress and compete with the squad!</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="typing-section">
+            <div class="container">
+                <!-- Submit Score Form -->
+                <div class="submit-card">
+                    <h2>📝 Submit Today's Score</h2>
+                    <p class="form-instructions">Complete your MonkeyType test, then enter your results below:</p>
+                    
+                    <form id="scoreForm">
+                        <div class="form-group">
+                            <label for="studentName">Your Name:</label>
+                            <input type="text" id="studentName" required placeholder="Enter your name">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="wpm">WPM (Words Per Minute):</label>
+                                <input type="number" id="wpm" required min="1" max="200" placeholder="e.g., 45">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="accuracy">Accuracy (%):</label>
+                                <input type="number" id="accuracy" required min="1" max="100" placeholder="e.g., 95">
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit Score 🚀</button>
+                    </form>
+                    
+                    <div id="submitMessage" class="submit-message"></div>
+                </div>
+
+                <!-- Today's Scoreboard -->
+                <div class="scoreboard-card">
+                    <div class="scoreboard-header">
+                        <h2>🏆 Today's Scoreboard</h2>
+                        <p class="current-date" id="currentDate"></p>
+                    </div>
+                    
+                    <div class="scoreboard-controls">
+                        <button id="refreshBtn" class="btn-refresh">🔄 Refresh</button>
+                        <button id="clearBtn" class="btn-clear">🗑️ Clear Today's Scores</button>
+                    </div>
+
+                    <div id="scoreboardContent">
+                        <div class="loading">Loading scores...</div>
+                    </div>
+                </div>
+
+                <!-- MonkeyType Link -->
+                <div class="monkeytype-card">
+                    <h3>🐵 Ready to Practice?</h3>
+                    <p>Head over to MonkeyType to complete your typing test, then come back here to submit your score!</p>
+                    <a href="https://monkeytype.com/" target="_blank" class="btn btn-secondary">Go to MonkeyType →</a>
+                </div>
+
+                <!-- Statistics Section -->
+                <div class="stats-section">
+                    <h2>📊 Class Statistics</h2>
+                    <div class="stats-grid" id="statsGrid">
+                        <div class="stat-card">
+                            <div class="stat-icon">👑</div>
+                            <div class="stat-value" id="topWPM">-</div>
+                            <div class="stat-label">Highest WPM Today</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🎯</div>
+                            <div class="stat-value" id="topAccuracy">-</div>
+                            <div class="stat-label">Best Accuracy Today</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📈</div>
+                            <div class="stat-value" id="avgWPM">-</div>
+                            <div class="stat-label">Class Average WPM</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📝</div>
+                            <div class="stat-value" id="totalScores">0</div>
+                            <div class="stat-label">Scores Today</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+        </div>
+        <div class="footer-content">
+            <p>© 2025 Quokka Squad 25g • Diploma of IT Back End Web Development</p>
+            <p>Equinim College • Intake 25g</p>
+        </div>
+    </footer>
+
+    <script src="typing-test.js"></script>
+</body>
+</html>
