@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Noticeboard | Quokka Squad 25g</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="noticeboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="quokka-emoji">🦘</span>
+                <span class="brand-text">Quokka Squad 25g</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="typing-test.html">Typing Test</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="noticeboard.html" class="active">Noticeboard</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>📌 Class Noticeboard</h1>
+            <p>Share your thoughts, feedback, and shout-outs with the squad!</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="noticeboard-section">
+            <div class="container">
+                
+                <!-- Feedback Submission Form -->
+                <div class="feedback-card">
+                    <h2>💬 Share Your Feedback</h2>
+                    <p class="form-instructions">Got a question, suggestion, or want to give someone a shout-out? Post it here!</p>
+                    
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <label for="studentName">Your Name (optional):</label>
+                            <input type="text" id="studentName" placeholder="Enter your name or stay anonymous">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="feedbackType">Type:</label>
+                            <select id="feedbackType" required>
+                                <option value="">Select a type...</option>
+                                <option value="feedback">💡 Feedback/Suggestion</option>
+                                <option value="question">❓ Question</option>
+                                <option value="shoutout">🎉 Shout-out</option>
+                                <option value="general">💬 General Comment</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="feedbackText">Message:</label>
+                            <textarea id="feedbackText" required rows="5" placeholder="Share your thoughts..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Post to Noticeboard 📌</button>
+                    </form>
+                    
+                    <div id="submitMessage" class="submit-message"></div>
+                </div>
+
+                <!-- Noticeboard Display -->
+                <div class="noticeboard-display">
+                    <div class="noticeboard-header">
+                        <h2>📋 Recent Posts</h2>
+                        <button id="clearAllBtn" class="btn-clear-all">🗑️ Clear All</button>
+                    </div>
+                    
+                    <div id="noticeboardContent">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">📌</div>
+                            <p>No posts yet! Be the first to share something with the squad.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+        </div>
+        <div class="footer-content">
+            <p>© 2025 Quokka Squad 25g • Diploma of IT Back End Web Development</p>
+            <p>Equinim College • Intake 25g</p>
+        </div>
+    </footer>
+
+    <script src="noticeboard.js"></script>
+</body>
+</html>
