@@ -104,23 +104,49 @@ Simply change these hex values to update the entire color scheme!
 
 ## Typing Test Scoreboard - How It Works
 
-The typing test uses **localStorage** to save scores:
+By default the typing test uses **localStorage** (per-device). You can enable **realtime shared scores** using Firebase Firestore:
 
-- **Automatic Daily Reset** - Scores from previous days are automatically cleared
-- **Real-time Updates** - New submissions appear immediately
-- **No Database Needed** - All data stored in the browser
-- **Live Statistics** - Calculates highest WPM, average, etc. automatically
+- **Automatic Daily Reset** - Scores filter by today’s date
+- **Realtime Updates** - Everyone sees new submissions instantly
+- **No server needed** - Works on GitHub Pages
+- **Live Statistics** - Highest WPM, average, counts
 
 ### Important Notes:
-- Each student's browser stores their own view of the scores
-- To see all class scores, students need to be submitting on the same device OR
-- Consider sharing screen during class to show the live scoreboard
-- Data persists only for the current day
+- Without Firebase, each student's browser stores their own view
+- With Firebase enabled, the class shares a single realtime scoreboard
+- Data for the typing test persists only for the current day (by filter)
 
 ### Future Enhancement Ideas:
 - Add a backend (Node.js + MongoDB) for persistent storage
 - Create teacher dashboard to download CSV of scores
 - Add weekly/monthly statistics tracking
+
+## Enable Realtime (Firebase)
+
+1. Create a Firebase project and add a Web App.
+2. Copy `firebase-config.sample.js` to `firebase-config.js` and paste your config.
+3. In Firebase Console → Firestore, create the database in production mode.
+4. Set security rules (basic example for class use):
+
+```
+rules_version = '2';
+service cloud.firestore {
+    match /databases/{database}/documents {
+        match /typingScores/{doc} {
+            allow read, write: if true; // For classroom demo. For production, restrict by auth.
+        }
+        match /noticeboard/{doc} {
+            allow read, write: if true;
+        }
+    }
+}
+```
+
+5. Deploy the site to GitHub Pages — realtime works immediately.
+
+Collections used:
+- `typingScores` documents: { name, wpm, accuracy, time, date, createdAt }
+- `noticeboard` documents: { name, type, message, time, createdAt }
 
 ## Publishing the Site
 
