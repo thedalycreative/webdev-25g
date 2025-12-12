@@ -83,6 +83,7 @@
                     </div>
                 </div>
 
+                <div id="messageContainer"></div>
                 <!-- MonkeyType Link -->
                 <div class="monkeytype-card">
                     <h3>🐵 Ready to Practice?</h3>
@@ -132,6 +133,9 @@
         </div>
     </footer>
 
-    <script src="typing-test.js"></script>
+    <!-- Firebase config (loads before typing-test.js) -->
+    <script src="firebase-config.js"></script>
+    <!-- Main app JavaScript -->
+    <script type="module" src="typing-test.js"></script>
 </body>
 </html>

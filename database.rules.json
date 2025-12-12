@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "typingScores": {
+      ".read": true,
+      ".write": true,
+      "$scoreId": {
+        ".validate": "newData.hasChildren(['name', 'wpm', 'accuracy', 'date', 'time', 'createdAt'])"
+      }
+    },
+    "noticeboardPosts": {
+      ".read": true,
+      ".write": true
+    }
+  }
+}

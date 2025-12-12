@@ -1,0 +1,12 @@
+specVersion: "v1"
+serviceId: "typing-test-25g"
+location: "australia-southeast1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "typing-test-25g-database"
+      cloudSql:
+        instanceId: "typing-test-25g-instance"
+        schemaValidation: "COMPATIBLE"
+connectorDirs: ["./default-connector"]
