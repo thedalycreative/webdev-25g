@@ -17,16 +17,16 @@ This is a vibrant, beach-themed resource hub for the on-campus Diploma of IT Bac
 webdev-25g/
 ├── index.html              # Homepage with overview and quick links
 ├── schedule.html           # Class schedule and term dates
-├── lessons.html            # Expandable lesson notes (update regularly)
 ├── typing-test.html        # Daily typing test scoreboard
 ├── resources.html          # Learning resources and tools
+├── noticeboard.html        # Class noticeboard with feedback form
 ├── styles.css              # Main stylesheet
 ├── schedule.css            # Schedule page styles
-├── lessons.css             # Lessons page styles
 ├── typing-test.css         # Typing test page styles
 ├── resources.css           # Resources page styles
+├── noticeboard.css         # Noticeboard page styles
 ├── typing-test.js          # Typing scoreboard functionality
-├── lessons.js              # Lesson accordion functionality
+├── noticeboard.js          # Noticeboard functionality
 └── README.md               # This file
 ```
 
@@ -46,12 +46,11 @@ webdev-25g/
 - Typical class day timeline
 - Important reminders
 
-### 📖 Lessons Page (`lessons.html`)
-- Expandable lesson cards (click to open/close)
-- Detailed notes for each lesson
-- Topics covered, key concepts, resources
-- Updates automatically saved in browser
-- **Easy to update** - just add new lesson cards!
+### 📌 Noticeboard (`noticeboard.html`)
+- Students can post feedback, questions, and shout-outs
+- Posts appear instantly on the board
+- Optional name field for anonymity
+- Clear all button for moderation
 
 ### ⌨️ Typing Test Scoreboard (`typing-test.html`)
 - Students submit daily WPM and accuracy scores
@@ -69,35 +68,11 @@ webdev-25g/
 
 ## How to Update the Site
 
-### Adding a New Lesson
+### Managing Noticeboard Posts
 
-1. Open `lessons.html`
-2. Find the lessons container (around line 60)
-3. Copy an existing lesson card structure
-4. Update the content:
-   - Change lesson number and title
-   - Update the date
-   - Add topics covered, key concepts, resources
-   - Update the `id` in both the header and content divs
-
-Example:
-```html
-<div class="lesson-card">
-    <div class="lesson-header" onclick="toggleLesson('lesson8')">
-        <div class="lesson-title">
-            <span class="lesson-number">Lesson 8</span>
-            <h2>Your Lesson Title</h2>
-        </div>
-        <div class="lesson-meta">
-            <span class="lesson-date">December 2025</span>
-            <span class="toggle-icon">▼</span>
-        </div>
-    </div>
-    <div class="lesson-content" id="lesson8">
-        <!-- Your lesson content here -->
-    </div>
-</div>
-```
+- Posts are stored in browser `localStorage`
+- They persist until cleared via "Clear All"
+- Each post includes type, timestamp, and optional name
 
 ### Updating Contact Information
 
