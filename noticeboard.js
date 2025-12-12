@@ -6,11 +6,18 @@ let db = null;
 async function initFirebaseIfAvailable() {
     try {
         if (!window.FIREBASE_CONFIG) return;
-        const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js');
-        const { getFirestore, collection, addDoc, doc, deleteDoc, onSnapshot, serverTimestamp, orderBy, query } = await import('https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js');
+
+        // Use the same version as typing-test.js for consistency
+        const { initializeApp } = await import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js');
+        const { getFirestore, collection, addDoc, doc, deleteDoc, onSnapshot, serverTimestamp, orderBy, query } = await import('https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js');
+
         const app = initializeApp(window.FIREBASE_CONFIG);
         db = getFirestore(app);
         firebaseReady = true;
+
+        console.log('✅ Noticeboard connected to Firestore');
+
+        // Pass the loaded module to the listener so it doesn't need to re-import
         startRealtimeListener({ collection, onSnapshot, orderBy, query });
     } catch (e) {
         console.warn('Firebase not configured or failed to load. Using localStorage fallback.', e);
@@ -20,10 +27,10 @@ async function initFirebaseIfAvailable() {
 // Get current time string
 function getCurrentTime() {
     const now = new Date();
-    return now.toLocaleString('en-AU', { 
+    return now.toLocaleString('en-AU', {
         month: 'short',
         day: 'numeric',
-        hour: '2-digit', 
+        hour: '2-digit',
         minute: '2-digit'
     });
 }
@@ -49,8 +56,8 @@ async function addNotice(name, type, message) {
         createdAt: Date.now()
     };
     if (firebaseReady && db) {
-        const { collection, addDoc, serverTimestamp } = await import('https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js');
-        await addDoc(collection(db, 'noticeboard'), { ...newNotice, createdAt: serverTimestamp() });
+        const { collection, addDoc, serverTimestamp } = await import('https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js');
+        await addDoc(collection(db, 'noticeboardPosts'), { ...newNotice, createdAt: serverTimestamp() });
         return newNotice;
     } else {
         const notices = getNotices();
@@ -65,8 +72,8 @@ async function addNotice(name, type, message) {
 // Delete a notice
 async function deleteNotice(noticeId) {
     if (firebaseReady && db && typeof noticeId === 'string') {
-        const { doc, deleteDoc } = await import('https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js');
-        await deleteDoc(doc(db, 'noticeboard', noticeId));
+        const { doc, deleteDoc } = await import('https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js');
+        await deleteDoc(doc(db, 'noticeboardPosts', noticeId));
     } else {
         const notices = getNotices();
         const filtered = notices.filter(notice => notice.id !== noticeId);
@@ -108,7 +115,7 @@ function getTypeLabel(type) {
 function renderNoticeboard(noticesOverride = null) {
     const notices = noticesOverride || getNotices();
     const noticeboardContent = document.getElementById('noticeboardContent');
-    
+
     if (notices.length === 0) {
         noticeboardContent.innerHTML = `
             <div class="empty-state">
@@ -118,7 +125,7 @@ function renderNoticeboard(noticesOverride = null) {
         `;
         return;
     }
-    
+
     const noticesHTML = notices.map(notice => `
         <div class="notice-post ${notice.type}">
             <div class="notice-header">
@@ -136,7 +143,7 @@ function renderNoticeboard(noticesOverride = null) {
             <div class="notice-content">${escapeHtml(notice.message)}</div>
         </div>
     `).join('');
-    
+
     noticeboardContent.innerHTML = `<div class="notices-container">${noticesHTML}</div>`;
 }
 
@@ -150,46 +157,46 @@ function escapeHtml(text) {
 // Handle form submission
 function handleFormSubmit(event) {
     event.preventDefault();
-    
+
     const name = document.getElementById('studentName').value;
     const type = document.getElementById('feedbackType').value;
     const message = document.getElementById('feedbackText').value;
     const messageDiv = document.getElementById('submitMessage');
-    
+
     // Validation
     if (!type) {
         showMessage('Please select a type!', 'error');
         return;
     }
-    
+
     if (!message.trim()) {
         showMessage('Please enter a message!', 'error');
         return;
     }
-    
+
     if (message.trim().length < 5) {
         showMessage('Message is too short! Please write at least 5 characters.', 'error');
         return;
     }
-    
+
     // Add notice
     const newNotice = addNotice(name, type, message);
-    
+
     // Show success message
     showMessage('✅ Posted to noticeboard successfully!', 'success');
-    
+
     // Clear form
     document.getElementById('feedbackForm').reset();
-    
+
     // Update display
     renderNoticeboard();
-    
+
     // Scroll to noticeboard
-    document.querySelector('.noticeboard-display').scrollIntoView({ 
+    document.querySelector('.noticeboard-display').scrollIntoView({
         behavior: 'smooth',
         block: 'start'
     });
-    
+
     // Hide message after 3 seconds
     setTimeout(() => {
         messageDiv.style.display = 'none';
@@ -217,13 +224,13 @@ async function initializePage() {
     // Render noticeboard
     await initFirebaseIfAvailable();
     renderNoticeboard();
-    
+
     // Set up event listeners
     const feedbackForm = document.getElementById('feedbackForm');
     if (feedbackForm) {
         feedbackForm.addEventListener('submit', handleFormSubmit);
     }
-    
+
     const clearAllBtn = document.getElementById('clearAllBtn');
     if (clearAllBtn) {
         clearAllBtn.addEventListener('click', clearAllNotices);
@@ -239,7 +246,7 @@ if (document.readyState === 'loading') {
 
 function startRealtimeListener(mod) {
     const { collection, onSnapshot, orderBy, query } = mod;
-    const q = query(collection(db, 'noticeboard'), orderBy('createdAt', 'desc'));
+    const q = query(collection(db, 'noticeboardPosts'), orderBy('createdAt', 'desc'));
     onSnapshot(q, (snapshot) => {
         const notices = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
         renderNoticeboard(notices);
