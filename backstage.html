@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Backstage Pass | Quokka Squad 25g</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="backstage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand" aria-label="Quokka Squad Home">
+                <span class="quokka-emoji">🦘</span>
+                <span class="brand-text">Quokka Squad 25g</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="typing-test.html">Typing Test</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="noticeboard.html">Noticeboard</a></li>
+                <li><a href="backstage.html" class="nav-vip-btn active">VIP Access</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="vip-hero">
+        <div class="vip-hero-content">
+            <h1>🎟️ Backstage Pass</h1>
+            <p class="vip-subtitle">VIP All-Access Signup</p>
+            <p>Exclusive access for the legends of Intake 25g.</p>
+        </div>
+    </header>
+
+    <main class="vip-container">
+
+        <!-- SECTION 1: Class Checklist -->
+        <section class="checklist-section">
+            <h2>📋 The Guest List</h2>
+            <p>Waiting for the squad to check in...</p>
+            <div class="checklist-container">
+                <table class="checklist-table">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-checklist">
+                        <!-- Trainer is already checked off -->
+                        <tr class="checked-in trainer-row">
+                            <td>✅ 🏆</td>
+                            <td>QS-000</td>
+                            <td>Tim Daly (Trainer)</td>
+                        </tr>
+                        <!-- JS will populate the rest -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION 2: The VIP Form -->
+        <section class="form-section">
+            <h2>📝 VIP Application</h2>
+            <p>Prove you're the real deal.</p>
+
+            <form id="vip-form">
+
+                <!-- Part 1: Identity Validation -->
+                <fieldset>
+                    <legend>Identity Check</legend>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="preferredName">Preferred Name</label>
+                        <input type="text" id="preferredName" name="preferredName">
+                    </div>
+                    <div class="form-group">
+                        <label for="studentId">Student ID</label>
+                        <input type="text" id="studentId" name="studentId" placeholder="QS-..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                </fieldset>
+
+                <!-- Part 2: The Fun Stuff -->
+                <fieldset>
+                    <legend>Vibe Check</legend>
+                    <div class="form-group">
+                        <label for="spiritAnimal">🦁 Spirit Animal</label>
+                        <input type="text" id="spiritAnimal" name="spiritAnimal" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="childhoodDream">🧒 What did you want to be when you grew up?</label>
+                        <input type="text" id="childhoodDream" name="childhoodDream" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="misconception">🤔 Biggest misconception people make about you?</label>
+                        <textarea id="misconception" name="misconception" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="unexpected">😲 Or something nobody would expect about you?</label>
+                        <textarea id="unexpected" name="unexpected" rows="3"></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- Part 3: Superpowers -->
+                <fieldset>
+                    <legend>Avenger Status</legend>
+                    <div class="form-group">
+                        <p class="label-text">Select ONE Major Power:</p>
+                        <div class="radio-group">
+                            <label><input type="radio" name="majorPower" value="flight" required> Flight 🦅</label>
+                            <label><input type="radio" name="majorPower" value="freezeTime"> Freeze Time ⏱️</label>
+                            <label><input type="radio" name="majorPower" value="mindReading"> Mind Reading 🧠</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="label-text">Select Max TWO Minor Powers:</p>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="minorPower" value="parking"> Always find a car park
+                                🚗</label>
+                            <label><input type="checkbox" name="minorPower" value="battery"> Phone battery lasts +50%
+                                🔋</label>
+                            <label><input type="checkbox" name="minorPower" value="richCousin"> Have a rich cousin
+                                💰</label>
+                            <label><input type="checkbox" name="minorPower" value="universalPlug"> USB always fits first
+                                try 🔌</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Part 4: Visuals -->
+                <fieldset>
+                    <legend>Visual Proof</legend>
+                    <div class="form-group">
+                        <label for="imageUrl">🔗 URL to Image (Doppelgänger / Hero / You)</label>
+                        <input type="url" id="imageUrl" name="imageUrl" placeholder="https://..." required>
+                        <small>Must be a public online image.</small>
+                    </div>
+                </fieldset>
+
+                <!-- Part 5: Random Particulars -->
+                <fieldset>
+                    <legend>The Nitty Gritty</legend>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="favFood">🍔 Favourite Food</label>
+                            <input type="text" id="favFood" name="favFood" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hobbies">🎨 Hobbies</label>
+                            <input type="text" id="hobbies" name="hobbies" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="favColor">🎨 Favourite Colour</label>
+                            <input type="color" id="favColor" name="favColor" value="#ff8c42" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="luckyNumber">🍀 Lucky Number</label>
+                            <input type="number" id="luckyNumber" name="luckyNumber" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dreamCareer">🚀 Future Dream Career Role Title</label>
+                        <input type="text" id="dreamCareer" name="dreamCareer" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bestFriend">👯 Name of Best Friend (Outside class)</label>
+                        <input type="text" id="bestFriend" name="bestFriend" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="holidayDest">✈️ Dream Holiday Destination</label>
+                        <input type="text" id="holidayDest" name="holidayDest" placeholder="e.g. Hawaii" required>
+                        <!-- Validation by maps API simulation in JS -->
+                    </div>
+                    <div class="form-group">
+                        <label for="birthCity">🌆 City/Town you were born in</label>
+                        <input type="text" id="birthCity" name="birthCity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quote">💬 A Quote that defines you</label>
+                        <textarea id="quote" name="quote" rows="3" required></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- Part 6: Tech Spec -->
+                <fieldset>
+                    <legend>Tech Specs</legend>
+                    <div class="form-group">
+                        <label for="favSubject">📚 Favourite Subject So Far</label>
+                        <select id="favSubject" name="favSubject" required>
+                            <option value="">-- Select --</option>
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="bootstrap">Bootstrap</option>
+                            <option value="git">Git/GitHub</option>
+                            <option value="js">JavaScript</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="subjectDetailGroup">
+                        <label for="subjectDetail">Tell us more (Why?)</label>
+                        <input type="text" id="subjectDetail" name="subjectDetail"
+                            placeholder="e.g. I liked styling fonts...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="backendGoal">🎯 What do you assume/hope to make in Back End?</label>
+                        <input type="text" id="backendGoal" name="backendGoal"
+                            placeholder="e.g. Social Media App, Online Store" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="logoUpload">📂 Upload a related logo (Mock Upload)</label>
+                        <input type="file" id="logoUpload" name="logoUpload" accept="image/*">
+                        <small>Find a logo of a business/entity similar to your goal (e.g. Myers, State Govt)</small>
+                    </div>
+                </fieldset>
+
+                <!-- Part 7: Word Association -->
+                <fieldset>
+                    <legend>Word Association</legend>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="wordObject">📦 One Object</label>
+                            <input type="text" id="wordObject" name="wordObject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="wordAction">🏃 One Action</label>
+                            <input type="text" id="wordAction" name="wordAction" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="wordAdjective">✨ One Adjective</label>
+                            <input type="text" id="wordAdjective" name="wordAdjective" required>
+                        </div>
+                        <div class="form-group">
+                            <label>📍 One Place</label>
+                            <input type="text" id="wordPlace" name="wordPlace" readonly
+                                placeholder="(Will use your Holiday Dest)" class="readonly-input">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Part 8: Promo Code -->
+                <fieldset>
+                    <legend>Unlock</legend>
+                    <div class="form-group">
+                        <label for="promoCode">🔑 Promo Code</label>
+                        <input type="text" id="promoCode" name="promoCode" placeholder="Enter code...">
+                        <small id="promoMessage">You have 1 guess.</small>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">🎫 Submit VIP Pass</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 Quokka Squad 25g • VIP Access</p>
+        </div>
+    </footer>
+
+    <script src="backstage.js"></script>
+</body>
+
+</html>

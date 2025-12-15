@@ -1,0 +1,215 @@
+/* Backstage / VIP Page Specific Styles */
+:root {
+    --vip-primary: #6b4c9a; /* Deep Purple */
+    --vip-secondary: #ff3e41; /* Hot Red */
+    --vip-accent: #fdd835; /* Gold */
+    --vip-dark: #1a1a2e; /* Dark Night */
+    --vip-glass: rgba(255, 255, 255, 0.9);
+}
+
+/* Override Navbar Button for VIP */
+.nav-vip-btn {
+    background-color: var(--vip-secondary);
+    color: white !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 62, 65, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.nav-vip-btn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05) translateY(-2px) !important;
+}
+
+.nav-vip-btn::after {
+    display: none !important; /* Remove the underline effect from standard nav */
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 62, 65, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 62, 65, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 62, 65, 0); }
+}
+
+/* VIP Hero */
+.vip-hero {
+    background: linear-gradient(135deg, var(--vip-dark), var(--vip-primary));
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-bottom: 5px solid var(--vip-accent);
+}
+
+.vip-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 3px 3px 0px var(--vip-secondary);
+}
+
+.vip-subtitle {
+    font-size: 1.5rem;
+    color: var(--vip-accent);
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Layout */
+.vip-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    gap: 3rem;
+}
+
+/* Section Styling */
+section h2 {
+    font-size: 2rem;
+    color: var(--vip-dark);
+    border-left: 5px solid var(--vip-primary);
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Checklist Table */
+.checklist-container{
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+.checklist-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.checklist-table th, .checklist-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.checklist-table th {
+    background-color: var(--vip-dark);
+    color: white;
+}
+
+.checklist-table tr.checked-in {
+    background-color: #e8f5e9; /* Light green bg */
+    font-weight: bold;
+    color: #2e7d32;
+    transition: all 0.5s ease;
+}
+
+.checklist-table tr.pending {
+    color: #bbb;
+}
+
+/* Form Styling */
+.form-section {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-top: 5px solid var(--vip-secondary);
+}
+
+fieldset {
+    border: 2px solid #eee;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+}
+
+legend {
+    font-weight: bold;
+    color: var(--vip-primary);
+    padding: 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label, .label-text {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--vip-dark);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="url"],
+input[type="number"],
+input[type="email"],
+select,
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--vip-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(107, 76, 154, 0.1);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 600px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Radio & Checkbox */
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.radio-group label, .checkbox-group label {
+    font-weight: 400;
+    cursor: pointer;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(to right, var(--vip-primary), var(--vip-secondary));
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(107, 76, 154, 0.4);
+}
+
+.readonly-input {
+    background-color: #f9f9f9;
+    color: #666;
+    cursor: not-allowed;
+}
