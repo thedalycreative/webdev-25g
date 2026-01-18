@@ -1,17 +1,12 @@
 // MOCK DATA: Class List
 // In a real app, this would come from a database.
-const studentList = [
+// MOCK DATA: Class List
+// In a real app, this would come from a database.
+let studentList = [
+    // Default fallback list
     { id: 'QS-001', firstName: 'Alice', lastName: 'Wonder', dob: '1995-04-12', checkedIn: false },
     { id: 'QS-002', firstName: 'Bob', lastName: 'Builder', dob: '1998-11-05', checkedIn: false },
-    { id: 'QS-003', firstName: 'Charlie', lastName: 'Bucket', dob: '2001-02-28', checkedIn: false },
-    { id: 'QS-004', firstName: 'Diana', lastName: 'Prince', dob: '1990-07-15', checkedIn: false },
-    { id: 'QS-005', firstName: 'Evan', lastName: 'Hansen', dob: '2003-09-22', checkedIn: false },
-    { id: 'QS-006', firstName: 'Fiona', lastName: 'Gallagher', dob: '1996-01-30', checkedIn: false },
-    { id: 'QS-007', firstName: 'George', lastName: 'Jetson', dob: '1985-08-08', checkedIn: false },
-    { id: 'QS-008', firstName: 'Hannah', lastName: 'Montana', dob: '1999-12-12', checkedIn: false },
-    { id: 'QS-009', firstName: 'Ian', lastName: 'Malcolm', dob: '1978-06-03', checkedIn: false },
-    { id: 'QS-010', firstName: 'Jack', lastName: 'Sparrow', dob: '1980-03-14', checkedIn: false },
-    { id: 'QS-011', firstName: 'Katniss', lastName: 'Everdeen', dob: '2000-05-08', checkedIn: false }
+    { id: 'QS-003', firstName: 'Charlie', lastName: 'Bucket', dob: '2001-02-28', checkedIn: false }
 ];
 
 // PROMO CODE LOGIC
@@ -21,12 +16,122 @@ let promoGuesses = 0;
 document.addEventListener('DOMContentLoaded', () => {
     populateChecklist();
     setupEventListeners();
+    setupCsvUpload();
 });
+
+function setupCsvUpload() {
+    const fileInput = document.getElementById('csvUpload');
+    if (!fileInput) return;
+
+    fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function (event) {
+            const text = event.target.result;
+            parseCsv(text);
+        };
+        reader.readAsText(file);
+    });
+}
+
+function parseCsv(csvText) {
+    const lines = csvText.split(/\r\n|\n/);
+    if (lines.length < 2) return;
+
+    const headers = lines[0].toLowerCase().split(',').map(h => h.trim());
+
+    // Expected headers based on user screenshot
+    // "First name", "Surname", "Preferred name", "Email", "DOB", "Student ID"
+    // We map: 
+    // "first name" -> firstName
+    // "surname" -> lastName
+    // "dob" -> dob
+    // "student id" -> id
+
+    const colMap = {
+        firstName: headers.indexOf('first name'),
+        lastName: headers.indexOf('surname'),
+        dob: headers.indexOf('dob'),
+        id: headers.indexOf('student id')
+    };
+
+    // Check if we found the essential columns
+    if (colMap.firstName === -1 || colMap.lastName === -1 || colMap.dob === -1 || colMap.id === -1) {
+        alert("❌ Error: CSV missing required columns: 'First name', 'Surname', 'DOB', 'Student ID'");
+        return;
+    }
+
+    const newStudents = [];
+
+    for (let i = 1; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) continue;
+
+        // Handle CSVs that might have commas in values (basic handling, splitting by comma)
+        // For simple names/dates this is usually fine.
+        const values = line.split(',').map(v => v.trim());
+
+        const rawDob = values[colMap.dob];
+        const formattedDob = parseDate(rawDob); // Convert 07-May-1968 to YYYY-MM-DD
+
+        const student = {
+            id: values[colMap.id],
+            firstName: values[colMap.firstName],
+            lastName: values[colMap.lastName],
+            dob: formattedDob,
+            checkedIn: false
+        };
+
+        if (student.id && student.firstName && student.lastName && student.dob) {
+            newStudents.push(student);
+        }
+    }
+
+    if (newStudents.length > 0) {
+        studentList = newStudents;
+        populateChecklist();
+        alert(`✅ Loaded ${newStudents.length} students from CSV!`);
+        console.log("Loaded students:", newStudents);
+    } else {
+        alert("⚠️ No valid student records found in CSV.");
+    }
+}
+
+function parseDate(dateStr) {
+    // Expected format: DD-MMM-YYYY (e.g., 07-May-1968)
+    // Returns: YYYY-MM-DD
+    if (!dateStr) return '';
+
+    const parts = dateStr.split('-');
+    if (parts.length !== 3) return dateStr; // Fallback
+
+    const day = parts[0];
+    const monthStr = parts[1];
+    const year = parts[2];
+
+    const months = {
+        'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06',
+        'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
+    };
+
+    const month = months[monthStr] || '01';
+
+    // Pad day if needed (though usually 07 is already padded)
+    const paddedDay = day.length === 1 ? '0' + day : day;
+
+    return `${year}-${month}-${paddedDay}`;
+}
 
 function populateChecklist() {
     const tbody = document.getElementById('student-checklist');
-    // Keep the trainer row, remove others if re-rendering (though we just append here)
-    // Actually, let's just append the students.
+    // Clear existing rows except the trainer row (first child usually, or we can just rebuild all except trainer)
+    // Actually, the HTML structure has the trainer row hardcoded.
+    // Let's remove all rows that DON'T have the 'trainer-row' class.
+
+    const rows = Array.from(tbody.querySelectorAll('tr:not(.trainer-row)'));
+    rows.forEach(row => row.remove());
 
     studentList.forEach(student => {
         const tr = document.createElement('tr');

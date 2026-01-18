@@ -46,6 +46,16 @@
         <section class="checklist-section">
             <h2>📋 The Guest List</h2>
             <p>Waiting for the squad to check in...</p>
+
+            <div class="upload-container"
+                style="margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                <label for="csvUpload" style="font-weight: bold; margin-right: 10px;">📂 Upload Class List
+                    (CSV):</label>
+                <input type="file" id="csvUpload" accept=".csv">
+                <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.8;">Format: First name, Surname, DOB (e.g.
+                    07-May-1968), Student ID</p>
+            </div>
+
             <div class="checklist-container">
                 <table class="checklist-table">
                     <thead>
@@ -92,7 +102,7 @@
                     </div>
                     <div class="form-group">
                         <label for="studentId">Student ID</label>
-                        <input type="text" id="studentId" name="studentId" placeholder="QS-..." required>
+                        <input type="text" id="studentId" name="studentId" placeholder="e.g. 61483" required>
                     </div>
                     <div class="form-group">
                         <label for="dob">Date of Birth</label>
