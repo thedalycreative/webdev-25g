@@ -1,5 +1,0 @@
-connectorId: "default"
-generate:
-  javascriptSdk:
-    outputDir: "../generated/js"
-    package: "@typing-test/dataconnect"

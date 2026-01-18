@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,11 @@
     <link rel="stylesheet" href="noticeboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-container">
@@ -37,18 +41,19 @@
     <main>
         <section class="noticeboard-section">
             <div class="container">
-                
+
                 <!-- Feedback Submission Form -->
                 <div class="feedback-card">
                     <h2>💬 Share Your Feedback</h2>
-                    <p class="form-instructions">Got a question, suggestion, or want to give someone a shout-out? Post it here!</p>
-                    
+                    <p class="form-instructions">Got a question, suggestion, or want to give someone a shout-out? Post
+                        it here!</p>
+
                     <form id="feedbackForm">
                         <div class="form-group">
                             <label for="studentName">Your Name (optional):</label>
                             <input type="text" id="studentName" placeholder="Enter your name or stay anonymous">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="feedbackType">Type:</label>
                             <select id="feedbackType" required>
@@ -59,15 +64,16 @@
                                 <option value="general">💬 General Comment</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="feedbackText">Message:</label>
-                            <textarea id="feedbackText" required rows="5" placeholder="Share your thoughts..."></textarea>
+                            <textarea id="feedbackText" required rows="5"
+                                placeholder="Share your thoughts..."></textarea>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary">Post to Noticeboard 📌</button>
                     </form>
-                    
+
                     <div id="submitMessage" class="submit-message"></div>
                 </div>
 
@@ -77,7 +83,7 @@
                         <h2>📋 Recent Posts</h2>
                         <button id="clearAllBtn" class="btn-clear-all">🗑️ Clear All</button>
                     </div>
-                    
+
                     <div id="noticeboardContent">
                         <div class="empty-state">
                             <div class="empty-state-icon">📌</div>
@@ -93,7 +99,9 @@
     <footer class="footer">
         <div class="footer-wave">
             <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z">
+                </path>
             </svg>
         </div>
         <div class="footer-content">
@@ -102,8 +110,7 @@
         </div>
     </footer>
 
-    <!-- Firebase config (optional for realtime). Copy firebase-config.sample.js to firebase-config.js with your project settings. -->
-    <script src="firebase-config.js" defer></script>
-    <script type="module" src="noticeboard.js"></script>
+
 </body>
+
 </html>
