@@ -175,6 +175,20 @@
                 </div>
             </div>
         </section>
+
+        <section class="chat-section">
+            <div class="container">
+                <h2>💬 EQC Web Dev Mate (25g)</h2>
+                <p class="contact-intro">Your AI learning assistant for backend web dev questions</p>
+                <div class="chat-container">
+                    <div id="chat" class="chat"></div>
+                    <form id="chat-form">
+                        <input id="chat-input" type="text" placeholder="Ask a question…" autocomplete="off" required>
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -188,5 +202,61 @@
             <p>Equinim College • Intake 25g</p>
         </div>
     </footer>
+
+    <script>
+    // === CONFIG ===
+    const LOGGER_URL = "https://script.google.com/macros/s/AKfycbx_C0KmAw2JA6JhF0qhIEYRz1PQluODLD8efQM0v4XmE82bS9OAR-AwYItS3Xoyd-ZI/exec";
+    const sessionId = crypto.randomUUID();
+
+    // === CHAT FUNCTIONALITY ===
+    const chatEl = document.getElementById("chat");
+    const formEl = document.getElementById("chat-form");
+    const inputEl = document.getElementById("chat-input");
+
+    function addMsg(text, who) {
+      const row = document.createElement("div");
+      row.className = "row";
+      const msg = document.createElement("div");
+      msg.className = "msg " + who;
+      msg.textContent = text;
+      row.appendChild(msg);
+      chatEl.appendChild(row);
+      chatEl.scrollTop = chatEl.scrollHeight;
+    }
+
+    formEl.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const q = inputEl.value.trim();
+      if (!q) return;
+      addMsg(q, "u");
+      inputEl.value = "";
+
+      // Simulate response from EQC Web Dev Mate (placeholder for now)
+      const reply = "Thanks for your question! (This is where EQC Web Dev Mate's reply will appear.)";
+
+      addMsg(reply, "a");
+
+      // === LOG TO GOOGLE SHEETS ===
+      try {
+        await fetch(LOGGER_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            student_id: "auto-logged",
+            topic: "general",
+            question: q,
+            response_summary: reply.slice(0, 300),
+            resources_links: [],
+            session_id: sessionId
+          }),
+          mode: "no-cors"
+        });
+      } catch (err) {
+        console.error("Logging error:", err);
+      }
+    });
+
+    addMsg("Hi there! I'm your EQC Web Dev Mate (25g). Ask me about anything in your backend web dev course.", "a");
+    </script>
 </body>
 </html>
